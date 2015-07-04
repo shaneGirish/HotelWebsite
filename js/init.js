@@ -403,7 +403,7 @@
     $('#slider1 .item >img').each(function(i, elem) {
       var img = $(elem);
       var div = $('<div />').css({
-        background: 'url(' + img.attr('src') + ') no-repeat',
+        background: 'url("' + img.attr('src') + '") no-repeat',
         width: img.width() + 'px',
         height: img.height() + 'px'
       });
