@@ -4,89 +4,85 @@
   /*-------------------------------------------------*/
   /* =  preloader
   /*-------------------------------------------------*/
-  $(window).load(function() { 
-    $("#preloader").fadeOut("slow"); 
+  $(window).load(function() {
+    $("#preloader").fadeOut("slow");
   });
 
   /*-------------------------------------------------*/
   /* =  preloader
   /*-------------------------------------------------*/
-  $(document).ready( function () {
+  $(document).ready(function() {
 
-    var window_height = $(window).height() ;
-  	var screen_size = $(window).width();
-  	$('#subheader, #subheader .rslides li ').css('height', window_height );
+    var window_height = $(window).height();
+    var screen_size = $(window).width();
+    $('#subheader, #subheader .rslides li ').css('height', window_height);
     $(".console").hide();
     $('textarea').autosize();
     $('textarea').css("height", "50px");
-
 
     /*-------------------------------------------------*/
     /* =  scroll to top
     /*-------------------------------------------------*/
     var to_top_icon = $('#top');
     $(to_top_icon).hide();
-        $(window).scroll(function(){
-        if ($(this).scrollTop() > 75 ) {
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 75) {
         to_top_icon.fadeIn();
-        } else {
+      } else {
         to_top_icon.fadeOut();
-        }
+      }
     });
 
-
-  	/*-------------------------------------------------*/
-  	/* =  scroll on link
+    /*-------------------------------------------------*/
+    /* =  scroll on link
   	/*-------------------------------------------------*/
     if ($(window).width() < 768) {
       var top_ofset = $('header').height() + 40;
-    } 
-    else {
+    } else {
       var top_ofset = $('header').height() + 91;
-    } 
+    }
 
-  	var top_ofset = $('header').height() + 40;
+    var top_ofset = $('header').height() + 40;
 
-  	$('header nav ul a,.findout-more ,.logo, .scroll-down, #top').smoothScroll({
-        offset: - top_ofset,
-        // one of 'top' or 'left'
-        direction: 'top',
-        // only use if you want to override default behavior
-        scrollTarget: null,
-        // fn(opts) function to be called before scrolling occurs.
-        // `this` is the element(s) being scrolled
-        beforeScroll: function() {},
-        // fn(opts) function to be called after scrolling occurs.
-        // `this` is the triggering element
-        afterScroll: function() {},
-        easing: 'easeInOutExpo',
-        speed: 1000,
-        // coefficient for "auto" speed
-        autoCoefficent: 2,
-        // $.fn.smoothScroll only: whether to prevent the default click action
-        preventDefault: true      
-      });
+    $('header nav ul a,.findout-more ,.logo, .scroll-down, #top').smoothScroll({
+      offset: -top_ofset,
+      // one of 'top' or 'left'
+      direction: 'top',
+      // only use if you want to override default behavior
+      scrollTarget: null,
+      // fn(opts) function to be called before scrolling occurs.
+      // `this` is the element(s) being scrolled
+      beforeScroll: function() {},
+      // fn(opts) function to be called after scrolling occurs.
+      // `this` is the triggering element
+      afterScroll: function() {},
+      easing: 'easeInOutExpo',
+      speed: 1000,
+      // coefficient for "auto" speed
+      autoCoefficent: 2,
+      // $.fn.smoothScroll only: whether to prevent the default click action
+      preventDefault: true
+    });
 
-
-    [].slice.call( document.querySelectorAll( '.rslides_tabs' ) ).forEach( function( nav ) {
-      new DotNav( nav, {
-        callback : function( idx ) {
+    [].slice.call(document.querySelectorAll('.rslides_tabs')).forEach(function(nav) {
+      new DotNav(nav, {
+        callback: function(idx) {
           //console.log( idx )
         }
-      } );
-    } );
+      });
+    });
 
     /*-------------------------------------------------*/
     /* =  scroll over 
     /*-------------------------------------------------*/
     var navigation = $('header');
     $(window).scroll(function() {
-      if ($(window).scrollTop()>(window_height - 156)) {
+      if ($(window).scrollTop() > (window_height - 156)) {
         navigation.addClass('change');
-        navigation.delay(1000).queue(function(){$(this).addClass('animate')
-    });
-      }
-      else {
+        navigation.delay(1000).queue(function() {
+          $(this).addClass('animate')
+        });
+      } else {
         navigation.removeClass('change animate');
       }
     });
@@ -94,21 +90,20 @@
     /*-------------------------------------------------*/
     /* =  add text in button
     /*-------------------------------------------------*/
-    $('#filters .filter').on('click', function(){ 
-        var text = $(this).children('i').html(); 
-        $('.filter-section .select-cat').html(text);
+    $('#filters .filter').on('click', function() {
+      var text = $(this).children('i').html();
+      $('.filter-section .select-cat').html(text);
     });
 
     /*-------------------------------------------------*/
     /* =  Close navbar on click
     /*-------------------------------------------------*/
-    $('.select-cat').on('click', function(){
+    $('.select-cat').on('click', function() {
       $(".filters").toggleClass('active');
     });
-    $('.filter').on('click', function(){
+    $('.filter').on('click', function() {
       $('.filters').toggleClass('active');
     });
-
 
     /*-------------------------------------------------*/
     /* =  Close navbar on click
@@ -120,8 +115,8 @@
 
     });
 
-    $('header nav a').on('click', function(){
-      $('nav').removeClass('active'); 
+    $('header nav a').on('click', function() {
+      $('nav').removeClass('active');
       $("html").removeClass('active-sidebar');
       $(".mobile-overlay").removeClass('active');
     });
@@ -145,25 +140,25 @@
     /*-------------------------------------------------*/
     $.Isotope.prototype._getCenteredMasonryColumns = function() {
       this.width = this.element.width();
-      
+
       var parentWidth = this.element.parent().width();
-      
-                    // i.e. options.masonry && options.masonry.columnWidth
+
+      // i.e. options.masonry && options.masonry.columnWidth
       var colW = this.options.masonry && this.options.masonry.columnWidth ||
-                    // or use the size of the first item
-                    this.$filteredAtoms.outerWidth(true) ||
-                    // if there's no items, use size of container
-                    parentWidth;
-      
-      var cols = Math.floor( parentWidth / colW );
-      cols = Math.max( cols, 1 );
+        // or use the size of the first item
+        this.$filteredAtoms.outerWidth(true) ||
+        // if there's no items, use size of container
+        parentWidth;
+
+      var cols = Math.floor(parentWidth / colW);
+      cols = Math.max(cols, 1);
 
       // i.e. this.masonry.cols = ....
       this.masonry.cols = cols;
       // i.e. this.masonry.columnWidth = ...
       this.masonry.columnWidth = colW;
     };
-    
+
     $.Isotope.prototype._masonryReset = function() {
       // layout-specific props
       this.masonry = {};
@@ -172,7 +167,7 @@
       var i = this.masonry.cols;
       this.masonry.colYs = [];
       while (i--) {
-        this.masonry.colYs.push( 0 );
+        this.masonry.colYs.push(0);
       }
     };
 
@@ -180,106 +175,103 @@
       var prevColCount = this.masonry.cols;
       // get updated colCount
       this._getCenteredMasonryColumns();
-      return ( this.masonry.cols !== prevColCount );
+      return (this.masonry.cols !== prevColCount);
     };
-    
+
     $.Isotope.prototype._masonryGetContainerSize = function() {
       var unusedCols = 0,
-          i = this.masonry.cols;
+        i = this.masonry.cols;
       // count unused columns
-      while ( --i ) {
-        if ( this.masonry.colYs[i] !== 0 ) {
+      while (--i) {
+        if (this.masonry.colYs[i] !== 0) {
           break;
         }
         unusedCols++;
       }
-      
+
       return {
-            height : Math.max.apply( Math, this.masonry.colYs ),
-            // fit container to columns that have been used;
-            width : (this.masonry.cols - unusedCols) * this.masonry.columnWidth
-          };
+        height: Math.max.apply(Math, this.masonry.colYs),
+        // fit container to columns that have been used;
+        width: (this.masonry.cols - unusedCols) * this.masonry.columnWidth
+      };
     };
-     $('#filter_content').isotope();
+    $('#filter_content').isotope();
 
     // cache filter_content
     var $filter_content = $('#filter_content');
     // initialize isotope
     $filter_content.isotope({
       animationOptions: {
-         duration: 750,
-         queue: false
-       }
+        duration: 750,
+        queue: false
+      }
     });
     // filter items when filter link is clicked
-    $('.filters a').click(function(){
+    $('.filters a').click(function() {
       var selector = $(this).attr('data-filter');
-      $filter_content.isotope({ filter: selector });
+      $filter_content.isotope({
+        filter: selector
+      });
       return false;
     });
 
     /*-------------------------------------------------*/
     /* =  video 
     /*-------------------------------------------------*/
-    $(function(){
-      if (self.location.href == top.location.href){
-      }
+    $(function() {
+      if (self.location.href == top.location.href) {}
 
-      $('#bgndVideo').on("YTPStart",function(e){
-         var currentTime = e.time;
-         $("#pause").show();
-         $("#play").hide();
-         $('.mbYTP_wrapper').removeClass('active');
+      $('#bgndVideo').on("YTPStart", function(e) {
+        var currentTime = e.time;
+        $("#pause").show();
+        $("#play").hide();
+        $('.mbYTP_wrapper').removeClass('active');
 
       });
 
-      $('#bgndVideo').on("YTPUnstarted",function(e){
-         var currentTime = e.time;
-         $("#pause").hide();
-         $("#play").show();
-         $('.mbYTP_wrapper').addClass('active');
+      $('#bgndVideo').on("YTPUnstarted", function(e) {
+        var currentTime = e.time;
+        $("#pause").hide();
+        $("#play").show();
+        $('.mbYTP_wrapper').addClass('active');
       });
-      $('#bgndVideo').on("YTPPause",function(e){
-         var currentTime = e.time;
-         $("#pause").hide();
-         $("#play").show();
+      $('#bgndVideo').on("YTPPause", function(e) {
+        var currentTime = e.time;
+        $("#pause").hide();
+        $("#play").show();
       });
       //debug functions
-      $("#bgndVideo").on("YTPStart", function(){
-          $("#eventListener").html("YTPStart");
-          $("#eventListener").append(" :: (state= "+ $("#bgndVideo").getPlayer().getPlayerState()+")");
-          $("#eventListener").append(" :: (quality= "+ $("#bgndVideo").getPlayer().getPlaybackQuality()+")");
+      $("#bgndVideo").on("YTPStart", function() {
+        $("#eventListener").html("YTPStart");
+        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
+        $("#eventListener").append(" :: (quality= " + $("#bgndVideo").getPlayer().getPlaybackQuality() + ")");
       });
-      $("#bgndVideo").on("YTPLoop", function(e){
-          $("#eventListener").html("YTPLoop");
-          $("#eventListener").append(" :: (state= "+ $("#bgndVideo").getPlayer().getPlayerState()+")");
-          $("#eventListener").append(" :: "+ e.counter);
+      $("#bgndVideo").on("YTPLoop", function(e) {
+        $("#eventListener").html("YTPLoop");
+        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
+        $("#eventListener").append(" :: " + e.counter);
       });
-      $("#bgndVideo").on("YTPEnd", function(){
-          $("#eventListener").html("YTPEnd");
-          $("#eventListener").append(" :: (state= "+ $("#bgndVideo").getPlayer().getPlayerState()+")");
-          console.debug("YTPEnd")
+      $("#bgndVideo").on("YTPEnd", function() {
+        $("#eventListener").html("YTPEnd");
+        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
+        console.debug("YTPEnd")
       });
-      $("#bgndVideo").on("YTPPause", function(){
-          $("#eventListener").html("YTPPause");
-          $("#eventListener").append(" :: (state= "+ $("#bgndVideo").getPlayer().getPlayerState()+")");
+      $("#bgndVideo").on("YTPPause", function() {
+        $("#eventListener").html("YTPPause");
+        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
       });
-      $("#bgndVideo").on("YTPBuffering", function(){
-          $("#eventListener").html("YTPBuffering");
-          $("#eventListener").append(" :: (state= "+ $("#bgndVideo").getPlayer().getPlayerState()+")");
+      $("#bgndVideo").on("YTPBuffering", function() {
+        $("#eventListener").html("YTPBuffering");
+        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
       });
 
       $(".player").mb_YTPlayer({
-          onReady: function(){
-              $("#eventListener").append(" (Player is ready)");
-              $(".console").show(); 
-          }
+        onReady: function() {
+          $("#eventListener").append(" (Player is ready)");
+          $(".console").show();
+        }
       });
     });
-
-
-
-
 
     /*-------------------------------------------------*/
     /* =  magnific popup 
@@ -294,7 +286,7 @@
       </svg>';
 
     $('.popup-modal').magnificPopup({
-      type:'inline',
+      type: 'inline',
       midClick: true,
       removalDelay: 50,
       callbacks: {
@@ -303,22 +295,21 @@
         },
         beforeOpen: function() {
           // just a hack that adds mfp-anim class to markup 
-           this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-           this.st.mainClass = this.st.el.attr('data-effect');
+          this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+          this.st.mainClass = this.st.el.attr('data-effect');
         }
       }
-    }); 
-
+    });
 
     $('.mfp-close').magnificPopup({
       mainClass: 'mfp-with-fade',
       removalDelay: 500, //delay removal by X to allow out-animation
       callbacks: {
         beforeClose: function() {
-            this.content.addClass('hinge');
-        }, 
+          this.content.addClass('hinge');
+        },
         close: function() {
-            this.content.removeClass('hinge'); 
+          this.content.removeClass('hinge');
         }
       },
       midClick: true
@@ -334,7 +325,7 @@
       gallery: {
         enabled: true,
         navigateByImgClick: true,
-        preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+        preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
       },
       image: {
         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
@@ -348,8 +339,8 @@
         },
         beforeOpen: function() {
           // just a hack that adds mfp-anim class to markup 
-           this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-           this.st.mainClass = this.st.el.attr('data-effect');
+          this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+          this.st.mainClass = this.st.el.attr('data-effect');
         }
       }
     });
@@ -366,38 +357,37 @@
         },
         beforeOpen: function() {
           // just a hack that adds mfp-anim class to markup 
-           this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-           this.st.mainClass = this.st.el.attr('data-effect');
+          this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
+          this.st.mainClass = this.st.el.attr('data-effect');
         }
       }
     });
 
     /*-------------------------------------------------*/
-  	/* =  slider subheader
+    /* =  slider subheader
   	/*-------------------------------------------------*/
     var owl = $("#slider1");
 
     owl.owlCarousel({
 
-        navigation: false, // Show next and prev buttons
-        slideSpeed: 500,
-        paginationSpeed: 3000,
-        singleItem: true,
-        transitionStyle : "fade",
-        autoPlay:true  
-         
-    }); 
-    $('#subheader .owl-pagination .owl-page').append ('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16"preserveAspectRatio="none"><circle cx="8" cy="8" r="6.215"/></svg>');
+      navigation: false, // Show next and prev buttons
+      slideSpeed: 500,
+      paginationSpeed: 3000,
+      singleItem: true,
+      transitionStyle: "fade",
+      autoPlay: true
+
+    });
+    $('#subheader .owl-pagination .owl-page').append('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16"preserveAspectRatio="none"><circle cx="8" cy="8" r="6.215"/></svg>');
     var container_wrap = '<div class="container nav-container"></div>';
     $('#subheader .owl-pagination').wrap(container_wrap);
 
-     
     // Custom Navigation Events
-    $(".next").on('click', function(){
-    owl.trigger('owl.next');
+    $(".next").on('click', function() {
+      owl.trigger('owl.next');
     })
-    $(".prev").on('click', function(){
-    owl.trigger('owl.prev');
+    $(".prev").on('click', function() {
+      owl.trigger('owl.prev');
     })
 
     $('#slider1 .item >img').each(function(i, elem) {
@@ -415,18 +405,18 @@
     /* =  slider follow
     /*-------------------------------------------------*/
     $("#slider3").owlCarousel({
-        navigation: false, // Show next and prev buttons
-        slideSpeed: 500,
-        paginationSpeed: 1000,
-        singleItem: true,
-        transitionStyle : "fade",
-        autoPlay:false 
+      navigation: false, // Show next and prev buttons
+      slideSpeed: 500,
+      paginationSpeed: 1000,
+      singleItem: true,
+      transitionStyle: "fade",
+      autoPlay: false
     });
 
-    $(".follow-slider .next").on('click',function(){
+    $(".follow-slider .next").on('click', function() {
       $("#slider3").trigger('owl.next');
     })
-    $(".follow-slider .prev").on('click',function(){
+    $(".follow-slider .prev").on('click', function() {
       $("#slider3").trigger('owl.prev');
     })
 
@@ -434,59 +424,57 @@
     /* =  slider pricing
     /*-------------------------------------------------*/
     if ($(window).width() < 670) {
-  
-       
-      $("#pricing-slider").owlCarousel({
-        items : 4, //10 items above 1000px browser width
-        itemsDesktop : false, //5 items between 1000px and 901px
-        itemsDesktopSmall : false, // betweem 900px and 601px
-        itemsTablet: false, //2 items between 600 and 0
-        itemsMobile : [670,1] // itemsMobile disabled - inherit from itemsTablet option
-      });
-         
-      // Custom Navigation Events
-      $(".pricing-section .next").on("click", function(){
-      $("#pricing-slider").trigger('owl.next');
-      });
-      $(".pricing-section .prev").on("click", function(){
-      $("#pricing-slider").trigger('owl.prev');
-      });
-      
-    }else {
-      if(typeof $("#pricing-slider").data('owlCarousel') != 'undefined') {
-          $("#pricing-slider").data('owlCarousel').destroy();
-      }
-      
-    } 
 
+      $("#pricing-slider").owlCarousel({
+        items: 4, //10 items above 1000px browser width
+        itemsDesktop: false, //5 items between 1000px and 901px
+        itemsDesktopSmall: false, // betweem 900px and 601px
+        itemsTablet: false, //2 items between 600 and 0
+        itemsMobile: [670, 1] // itemsMobile disabled - inherit from itemsTablet option
+      });
+
+      // Custom Navigation Events
+      $(".pricing-section .next").on("click", function() {
+        $("#pricing-slider").trigger('owl.next');
+      });
+      $(".pricing-section .prev").on("click", function() {
+        $("#pricing-slider").trigger('owl.prev');
+      });
+
+    } else {
+      if (typeof $("#pricing-slider").data('owlCarousel') != 'undefined') {
+        $("#pricing-slider").data('owlCarousel').destroy();
+      }
+
+    }
 
     $(window).on('resize', function() {
-      var screen_size = $(window).width();   
+      var screen_size = $(window).width();
 
       if (screen_size <= 670) {
         var owl = $("#pricing-slider");
-       
+
         owl.owlCarousel({
-          items : 4, //10 items above 1000px browser width
-          itemsDesktop : false, //5 items between 1000px and 901px
-          itemsDesktopSmall : false, // betweem 900px and 601px
+          items: 4, //10 items above 1000px browser width
+          itemsDesktop: false, //5 items between 1000px and 901px
+          itemsDesktopSmall: false, // betweem 900px and 601px
           itemsTablet: false, //2 items between 600 and 0
-          itemsMobile : [670,1] // itemsMobile disabled - inherit from itemsTablet option
-        });
-           
-        // Custom Navigation Events
-        $(".pricing-section .next").on("click", function(){
-        owl.trigger('owl.next');
-        });
-        $(".pricing-section .prev").on("click", function(){
-        owl.trigger('owl.prev');
+          itemsMobile: [670, 1] // itemsMobile disabled - inherit from itemsTablet option
         });
 
-      }else {
-        if(typeof $("#pricing-slider").data('owlCarousel') != 'undefined') {
-            $("#pricing-slider").data('owlCarousel').destroy();
+        // Custom Navigation Events
+        $(".pricing-section .next").on("click", function() {
+          owl.trigger('owl.next');
+        });
+        $(".pricing-section .prev").on("click", function() {
+          owl.trigger('owl.prev');
+        });
+
+      } else {
+        if (typeof $("#pricing-slider").data('owlCarousel') != 'undefined') {
+          $("#pricing-slider").data('owlCarousel').destroy();
         }
-        
+
       }
     }).trigger('resize');
 
@@ -494,24 +482,32 @@
     /* =  slider team
     /*-------------------------------------------------*/
     $("#owl2").owlCarousel({
-      items : 4,
-      itemsDesktop : [1199,2],
-      itemsDesktopSmall : [700,1],
-      itemsTablet: [480,1],
-      navigation : true
+      items: 4,
+      itemsDesktop: [1199, 2],
+      itemsDesktopSmall: [700, 1],
+      itemsTablet: [480, 1],
+      navigation: true
     });
 
     /*-------------------------------------------------*/
     /* =  animate numbers
     /*-------------------------------------------------*/
-    $('#blog').one('inview', function(event, isInView, visiblePartX, visiblePartY){
-      $('#lines1').animateNumber({ number: 226},2000);
+    $('#blog').one('inview', function(event, isInView, visiblePartX, visiblePartY) {
+      $('#lines1').animateNumber({
+        number: 226
+      }, 2000);
 
-      $('#lines2').animateNumber({ number: 356},2000);
+      $('#lines2').animateNumber({
+        number: 356
+      }, 2000);
 
-      $('#lines3').animateNumber({ number: 195},2000);
+      $('#lines3').animateNumber({
+        number: 195
+      }, 2000);
 
-      $('#lines4').animateNumber({ number: 583},2000);
+      $('#lines4').animateNumber({
+        number: 583
+      }, 2000);
     });
 
     /*-------------------------------------------------*/
@@ -523,7 +519,6 @@
     var $fadeInRight = $('section .container >p, #subheader h1, .social ul, .main-form button.btn1, #filter .filters');
     var $fadeIn = $('.footer-main small, .main-form .input , #video .console');
 
-
     // InView - fadeIn
 
     if ($(window).width() >= 768) {
@@ -531,36 +526,43 @@
       $fadeInUp.css('opacity', 0);
       $fadeInLeft.css('opacity', 0);
       $fadeInRight.css('opacity', 0);
-      
+
       $fadeIn.one('inview', function(event, visible) {
-        if (visible) { $(this).addClass('animated fadeIn'); }
+        if (visible) {
+          $(this).addClass('animated fadeIn');
+        }
       });
 
       // InView - fadeInDown
       $fadeInUp.one('inview', function(event, visible) {
-        if (visible) { $(this).addClass('animated fadeInUp'); }
+        if (visible) {
+          $(this).addClass('animated fadeInUp');
+        }
       });
       // InView - fadeInLeft
       $fadeInLeft.one('inview', function(event, visible) {
-        if (visible) { $(this).addClass('animated fadeInLeft'); }
+        if (visible) {
+          $(this).addClass('animated fadeInLeft');
+        }
       });
       // InView - fadeInRight
       $fadeInRight.one('inview', function(event, visible) {
-        if (visible) { $(this).addClass('animated fadeInRight'); }
+        if (visible) {
+          $(this).addClass('animated fadeInRight');
+        }
       });
-  
-      
-    }else {
+
+    } else {
 
       $fadeIn.css('opacity', 1);
       $fadeInUp.css('opacity', 1);
       $fadeInLeft.css('opacity', 1);
       $fadeInRight.css('opacity', 1);
-      
-    } 
+
+    }
 
     $(window).on('resize', function() {
-      var screen_size = $(window).width();   
+      var screen_size = $(window).width();
 
       if (screen_size >= 768) {
 
@@ -568,98 +570,108 @@
         $fadeInUp.css('opacity', 0);
         $fadeInLeft.css('opacity', 0);
         $fadeInRight.css('opacity', 0);
-        
+
         $fadeIn.one('inview', function(event, visible) {
-          if (visible) { $(this).addClass('animated fadeIn'); }
+          if (visible) {
+            $(this).addClass('animated fadeIn');
+          }
         });
 
         // InView - fadeInDown
         $fadeInUp.one('inview', function(event, visible) {
-          if (visible) { $(this).addClass('animated fadeInUp'); }
+          if (visible) {
+            $(this).addClass('animated fadeInUp');
+          }
         });
         // InView - fadeInLeft
         $fadeInLeft.one('inview', function(event, visible) {
-          if (visible) { $(this).addClass('animated fadeInLeft'); }
+          if (visible) {
+            $(this).addClass('animated fadeInLeft');
+          }
         });
         // InView - fadeInRight
         $fadeInRight.one('inview', function(event, visible) {
-          if (visible) { $(this).addClass('animated fadeInRight'); }
+          if (visible) {
+            $(this).addClass('animated fadeInRight');
+          }
         });
 
-      }else {
+      } else {
 
         $fadeIn.css('opacity', 1);
         $fadeInUp.css('opacity', 1);
         $fadeInLeft.css('opacity', 1);
         $fadeInRight.css('opacity', 1);
-        
+
       }
     }).trigger('resize');
-
 
     /*-------------------------------------------------*/
     /* =  Generate random number for form check
     /*-------------------------------------------------*/
     var generateRandom = function(element) {
-        var word = ['one', 'two', 'three', 'four', 'five'];
-        var rand = (Math.floor(Math.random() * 4));
-        var correct = word[rand];
-        $(element).html(correct);
-        return correct;
-    }        
+      var word = ['one', 'two', 'three', 'four', 'five'];
+      var rand = (Math.floor(Math.random() * 4));
+      var correct = word[rand];
+      $(element).html(correct);
+      return correct;
+    }
 
     var correct = generateRandom('.test p span');
 
     /*-------------------------------------------------*/
     /* =  Highlighting checked radio button 
-    /*-------------------------------------------------*/         
+    /*-------------------------------------------------*/
     $('input[name=rand]').on('click', function() {
-        $('input[name=rand]').parent().removeClass('active1');
-        $('input[name=rand]:checked').parent().addClass('active1');
+      $('input[name=rand]').parent().removeClass('active1');
+      $('input[name=rand]:checked').parent().addClass('active1');
     });
 
     /*-------------------------------------------------*/
     /* =  Popup notification 
-    /*-------------------------------------------------*/ 
+    /*-------------------------------------------------*/
     var showNotification = function(message, className) {
-        $('.popup-email').fadeIn('fast');
-        $('.element p').remove();
-        $('.element').prepend('<p class="' + className + '">' + message + '</p>');
+      $('.popup-email').fadeIn('fast');
+      $('.element p').remove();
+      $('.element').prepend('<p class="' + className + '">' + message + '</p>');
     }
 
     var closeNotification = function(element) {
-        $(element).fadeOut('fast');
+      $(element).fadeOut('fast');
     }
 
     $('#btn').on('click', function() {
-        closeNotification('.popup-email');
+      closeNotification('.popup-email');
     });
 
     /*-------------------------------------------------*/
     /* =  Form validation
     /*-------------------------------------------------*/
 
-     $('.contact-form').validate({
-        errorElement: 'p',
-        errorClass: 'notify',
-        rules: {
-            name: "required",
-            subject: "required",
-            mail: {required: true, email: true},
-            message: "required"
+    $('.contact-form').validate({
+      errorElement: 'p',
+      errorClass: 'notify',
+      rules: {
+        name: "required",
+        subject: "required",
+        mail: {
+          required: true,
+          email: true
         },
-        submitHandler: function(form) {               
-            if($('input[name=rand]:checked').val() === correct) {                
-                $.post('form_data.php', $(form).serialize(), function(response) {
-                    $(form)[0].reset();
-                    correct = generateRandom('.test p span');
-                    closeNotification('.contact-wrap');
-                    showNotification(response.msg, response.class);
-                }, 'json');
-            } else showNotification('Incorrect number selected!', 'error');              
-            
-        }
-    });  
+        message: "required"
+      },
+      submitHandler: function(form) {
+        if ($('input[name=rand]:checked').val() === correct) {
+          $.post('form_data.php', $(form).serialize(), function(response) {
+            $(form)[0].reset();
+            correct = generateRandom('.test p span');
+            closeNotification('.contact-wrap');
+            showNotification(response.msg, response.class);
+          }, 'json');
+        } else showNotification('Incorrect number selected!', 'error');
+
+      }
+    });
 
     /*-------------------------------------------------*/
     /* =  map
@@ -667,171 +679,110 @@
 
     function initialize() {
       var loc, map, marker, infobox, styles;
-      
+
       loc = new google.maps.LatLng(51.508606, -0.133789);
-      
+
       map = new google.maps.Map(document.getElementById("map"), {
-           zoom: 7,
-           center: loc,
-           scrollwheel: false,
-           navigationControl: false,
-           mapTypeControl: false,
-           scaleControl: false,
-           draggable: false,
-           mapTypeId: google.maps.MapTypeId.ROADMAP
+        zoom: 7,
+        center: loc,
+        scrollwheel: false,
+        navigationControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        draggable: false,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
       marker = new google.maps.Marker({
-          position: new google.maps.LatLng(51.508606, -0.133789),
-          map: map,
-          // title: 'VIEW ADDRESS',
-          icon: 'images/pin.png' // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
+        position: new google.maps.LatLng(51.508606, -0.133789),
+        map: map,
+        // title: 'VIEW ADDRESS',
+        icon: 'images/pin.png' // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
       });
-      styles = [
-        {
-          "featureType": "administrative",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "poi",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "road",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "transit",
-          "stylers": [
-            { "visibility": "off" }
-          ]
-        },{
-          "featureType": "landscape",
-          "stylers": [
-            { "visibility": "on" },
-            { "color": "#c7cad5" }
-          ]
-        },{
-          "featureType": "water",
-          "stylers": [
-            { "visibility": "on" },
-            { "color": "#eaedf3" }
-          ]
-        },{
-        }
-      ];
+      styles = [{
+        "featureType": "administrative",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "poi",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "road",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "transit",
+        "stylers": [{
+          "visibility": "off"
+        }]
+      }, {
+        "featureType": "landscape",
+        "stylers": [{
+          "visibility": "on"
+        }, {
+          "color": "#c7cad5"
+        }]
+      }, {
+        "featureType": "water",
+        "stylers": [{
+          "visibility": "on"
+        }, {
+          "color": "#eaedf3"
+        }]
+      }, {}];
 
       infobox = new InfoBox({
-           content: document.getElementById("infobox"),
-           disableAutoPan: false,
-           maxWidth: 790,
-           pixelOffset: new google.maps.Size(-395, -200),
-           zIndex: 999,
-           boxStyle: {
-              // background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-              opacity: 1,
-              width: "790px"
-          },
-          // closeBoxMargin: "12px 4px 2px 2px",
-          closeBoxURL: "images/location.png",
-          infoBoxClearance: new google.maps.Size(1, 1)
+        content: document.getElementById("infobox"),
+        disableAutoPan: false,
+        maxWidth: 790,
+        pixelOffset: new google.maps.Size(-395, -200),
+        zIndex: 999,
+        boxStyle: {
+          // background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
+          opacity: 1,
+          width: "790px"
+        },
+        // closeBoxMargin: "12px 4px 2px 2px",
+        closeBoxURL: "images/location.png",
+        infoBoxClearance: new google.maps.Size(1, 1)
       });
 
-      var styledMap = new google.maps.StyledMapType(styles,
-        {name: "Styled Map"});
+      var styledMap = new google.maps.StyledMapType(styles, {
+        name: "Styled Map"
+      });
 
       map.mapTypes.set('map', styledMap);
-      map.setMapTypeId('map'); 
+      map.setMapTypeId('map');
 
       google.maps.event.addListener(marker, 'click', function() {
-          infobox.open(map, this);
-          map.panTo(loc);
+        infobox.open(map, this);
+        map.panTo(loc);
       });
 
       var infowindow = new google.maps.InfoWindow({
         content: document.getElementById("infobox1"),
 
       });
-      infowindow.open(map,marker);
-      infobox.open(map,marker);
+      infowindow.open(map, marker);
+      infobox.open(map, marker);
 
       var icon1 = "images/pin.png";
       var icon2 = "images/pin-hover.png";
- 
+
       google.maps.event.addListener(marker, 'mouseover', function() {
-          marker.setIcon(icon2);
+        marker.setIcon(icon2);
       });
       google.maps.event.addListener(marker, 'mouseout', function() {
-          marker.setIcon(icon1);
+        marker.setIcon(icon1);
       });
-
 
     }
     google.maps.event.addDomListener(window, 'load', initialize);
 
   });
-  
+
 })(jQuery);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
