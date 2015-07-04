@@ -1,0 +1,37 @@
+/* --------------------------------------------------------------------------------------
++
++ CUSTOM RULES
++
+-------------------------------------------------------------------------------------- */
+
+
+section:first-child {
+	padding: 0;
+}
+
+section {
+	padding: 85px 0;
+}
+.light-blue {
+	color: #62a7f4!important;
+}
+
+.dark-blue {
+	position: relative;
+	color: #0f122f;
+	display: block;
+	text-align: center;
+	margin-bottom: 60px;
+	&:before {
+		position: absolute;
+		content: "";
+		width: 86px;
+		background-color: #c8cad5;
+		height: 2px;
+		top: 100%;
+		left: 50%;
+		margin-left: -43px;
+		margin-top: 27px;
+	}
+} 
+ 
