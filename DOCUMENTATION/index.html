@@ -1,0 +1,405 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Berliner Template Documentation</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+	
+		<h3 class="center alt">&ldquo;BERLINER Template&rdquo; Documentation by &ldquo;ThemeStreet.Net&rdquo; v1.0</h3>
+		
+		<hr>
+		
+		<h1 class="center">&ldquo;BERLINER&rdquo; - Multipurpose Responsive HTML5 Bootstrap Template</h1>
+		
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 24th of March 2015.<br>
+					By: ThemeStreet.Net<br>
+					Email: <a href="mailto:support@themestreet.net">support@themestreet.net</a> 
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->		
+	
+			<div class="span-12 last">
+				<p class="prepend-top append-0">Thank you for purchasing "BERLINER" multipurpose website HTML5/CSS3 responsive bootstrap template. If you have any questions that are beyond the scope of this help file, please feel free to email via our user page contact form <a href="http://themeforest.net/user/ThemeStreetNet">here</a>. Thanks so much!</p>
+			</div>
+		</div><!-- end div .borderTop -->
+		
+		<hr>
+		
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+			<li><a href="#cssFiles">CSS and SCSS Files and Structure</a></li>
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#credits">Sources and Credits</a></li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This template is a responsive multipurpose fixed layout with one column (in some sections are few columns). All sections of this template are nested in div with class <strong>layout</strong>. Every section has own #id (name). Here is the general structure:</p>
+		
+		<ol>
+			<li><strong>header</strong></li>
+			<li><strong>#subheader</strong></li>
+			<li><strong>#about</strong> section</li>
+			<li><strong>#filter</strong> section</li>
+			<li><strong>#heading-slogan</strong> section</li>
+			<li><strong>#video</strong> section</li>
+			<li><strong>#pricing</strong> section</li>
+			<li><strong>#customers</strong> section</li>
+			<li><strong>#follow</strong> section</li>
+			<li><strong>#team</strong> section</li>
+			<li><strong>#blog</strong> section</li>
+			<li><strong>#contact</strong> section</li>
+			<li><strong>#map</strong> section</li>
+			<li><strong>#theme</strong> section</li>
+			<li><strong>#social</strong> section</li>
+			<li><strong>footer</strong></li>
+		</ol>
+
+		<img src="assets/images/markup.jpg" alt="HTML Structure" />
+
+		<p>Whole code in HTML file are well commented, and indented.</p>
+		
+		<p>If you would like to edit the color, font, or style of any elements in one of these columns, you can do that in CSS files located inside <strong>css</strong> folder.</p>
+
+		<hr>
+
+		<h3 id="cssFiles"><strong>B) CSS and SCSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+
+		<p>Our theme using one CSS file located in <strong>css</strong> folder. It is <strong>style.css</strong> file.</p> 
+
+		<p>The file is separated into sections using:</p>  
+
+<pre>	
+		/* --- +  BASIC STYLES + --- */
+
+		/* --- +  ANIMATIONS + --- */
+
+		/* --- +  LAYOUT + --- */
+		
+		/* --- +  HEADER + --- */
+		
+		/* --- +  BUTTONS + --- */
+		
+		/* --- +  FORMS + --- */
+		
+		/* --- +  HEADER + --- */
+		
+		/* --- +  VALIDATION POPUP + --- */
+
+		/* --- +  SCROLL TO TOP + --- */
+
+		/* --- +  CONTENT + --- */
+
+		/* --- +  MEDIA --- */
+
+</pre>
+		
+		<p>If you would like to edit a specific section of the site, simply find the appropriate label in the CSS file, and then scroll down until you find the appropriate style that needs to be edited.</p> 
+		
+		<h3 id="cssFiles"><strong>B-1) SCSS Files and Structure</strong> - <a href="#toc">top</a></h3>
+		
+		<p>All SCSS files are located in <strong>sass</strong> folder.</p>
+
+		<p>Basic styles and variables are located in _base.scss file.</p>
+		
+		<p>Layout located in few scss files:</p>
+
+		- BODY
+			- BASIC STYLES
+
+			<ol>
+				<li>
+					Header 
+					
+				</li>
+				<li>Content.layout
+					<ul>
+						<li>
+							- #subheader
+							
+						</li>
+						<li>
+							- #about
+							
+						</li>
+						<li>
+							- #filter
+							
+						</li>
+						<li>
+							- #heading-slogan
+							
+						</li>
+						<li>
+							- #video
+							
+						</li>
+						<li>
+							- #pricing
+							
+						</li>
+						<li>
+							- #customers
+							
+						</li>
+						<li>
+							- #follow
+							
+						</li>
+						<li>
+							- #team
+							
+						</li>
+						<li>
+							- #blog
+							
+						</li>
+						<li>
+							- #contact
+							
+						</li>
+						<li>
+							- .map
+							
+						</li>
+						<li>
+							- .theme
+							
+						</li>
+						<li>
+							- .social
+							
+						</li>
+					</ul>
+				</li>
+				<li>
+					LAYOUT
+					
+				</li>
+				<li>
+					FONT FACE (FONTAWESOME)
+					
+				</li>
+				<li>
+					FORMS
+					
+				</li>
+				<li>
+					BUTTONS
+					
+				</li>
+				<li>
+					ANIMATIONS
+					
+				</li>
+				<li>
+					NAVS
+					
+				</li>
+				<li>
+					VIDEO
+					
+				</li>
+				<li>
+					MAGNIFIC POPUP
+					
+				</li>
+				<li>
+					HELPERS
+					
+				</li>
+				<li>
+					JUSTIFIZE
+					
+				</li>
+				<li>
+					VERTICALIZE
+					
+				</li>
+				<li>
+					ICONS
+					
+				</li>
+				<li>
+					FORMS
+					
+				</li>
+				<li>
+					SUBHEADER-SLIDER
+					
+				</li>
+				<li>
+					FOLLOWER-SLIDER
+					
+				</li>
+				<li>
+					TEAM-SLIDER
+					
+				</li>
+				<li>
+					CUSTOM-RULES
+					
+				</li>
+				<li>
+					Footer
+					
+				</li>
+				<li>
+					Media
+					
+				</li>
+				
+			</ol>
+
+		<hr>
+		
+		<h3 id="javascript"><strong>C) JavaScript</strong> - <a href="#toc">top</a></h3>
+		
+		<p>This theme imports several Javascript files located in <strong>js</strong> folder.</p>
+		
+		<ol>
+			<li>jQuery - JavaScript Library</li>
+			<li>Map Api</li>
+			<li>Selectivizr - JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8.</li>
+			<li>Modernizr - JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</li>
+			<li>jQuery Validation - Form validation with jQuery. Used in contact form.</li>
+			<li>Izotope jQuery - An exquisite jQuery plugin for magical layouts - Used in #filter section for filtering filter elements.</li>
+			<li>Respond.js - A fast &amp; lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)</li>
+			<li>Magnific Popup is used in #filter section.js</li>
+			<li>Animate Number is used in #blog section under filter elements</li>
+			<li>Inview plugin is used for element with animate when thay visible</li>
+			<li>mb.YTPlayer</li>
+			<li>Masonry sorting elements</li>
+			<li>OWL slider.js</li>
+			<li>Our custom JS scripts - init.js</li>
+		</ol>
+		  
+		<ol>
+			<li>Our custom made init.js using well commented functions:
+<pre>	
+	[preloader script]
+	[script for scroll to top]
+	[contact function initwatermark]
+	[contact scroll on link]
+	[scripts for scroll over ]
+	[scripts for Close navbar on click]
+	[scripts for add text in button]
+	[scripts for img to background]
+	[scripts for Izotope]
+	[scripts for video ]
+	[script for magnific popup ]
+	[script for slider subheader]
+	[script for slider follow]
+	[script for slider team]
+	[script for animate numbers]
+	[script for validation]
+	[map script]
+
+</pre>
+	<p>- You can change coordinates for marker (pin) and for map. Second coordinates are for pin. First coordinates are for position on the map. See picture below.</p>
+	<img src="assets/images/map.jpg" alt="Map" />
+	
+	<h3 id="cssFiles"><strong>Contact Form</strong></h3>
+	<p>You can change at 5th line of file <strong>form_data.php</strong> email where you want to receive emails from your website. Also this file is well commented. See image below for explanation.</p>
+	<img src="assets/images/contact_form.jpg" alt="Contact Form" />
+			</li>
+			</li>
+		</ol>
+		
+		<hr>
+		
+		<h3 id="credits"><strong>D) Sources and Credits</strong> - <a href="#toc">top</a></h3>
+		
+		<p>We've used the following images, videos, fonts and icons:
+
+		<p>
+			All Icons are our custom made product. You can use it on your products only with extended license.Our icons are in Icons folder, in icons.svg.
+			In this file change svg code 
+		</p>	
+		<img src="assets/images/svg-path.jpg" alt="Svg" />
+
+		<p>
+			In html file change path in html tag "use". 
+		</p>
+		<img src="assets/images/html-svg.jpg" alt="Svg" />
+
+
+		
+		<ul>
+			<li>Fonts Montserrat and Source Sans Pro You can download it <a href="http://www.google.com/fonts">here.</a></li>
+			<li>Logo is our work also.</li>
+			<li>All pictures for preview purposes in this template are bought at <a href="https://unsplash.com/">Unsplash</a></li>
+			<li>Background picture for team section is downloaded from <a href="http://wide-wallpapers.net/ocean-waves-hitting-the-rocks-wide-wallpaper/">website</a>.</li>
+			<li>Vimeo link used in section videop you can find <a href="http://vimeo.com/36284099">here</a>.</li>
+			<li>
+				Main slider (Berliner) <a href=" http://www.istockphoto.com/photo/he-s-every-inch-the-talented-designer-21961372?st=8ba8192
+				">Image1</a> <a href=" http://picjumbo.com/testdrive/?i=IMG_4340-1300x866.jpg&l=http://picjumbo.com/macbook-and-clutter/#1
+				">Image2</a> 
+			</li>
+			<li>
+				Main slider (Gold Berliner) <a href="  https://unsplash.com/">Image1</a> 
+				<a href=" http://www.istockphoto.com/photo/portrait-of-a-man-with-beard-49758424">Image2</a> 
+				<a href="https://unsplash.com/">Image3</a> 
+			</li>
+			<li>
+				Icons 
+				<a href="http://www.elegantthemes.com/blog/freebie-of-the-week/free-line-style-icons">icons1</a>
+				<a href="http://www.elegantthemes.com/blog/resources/how-to-use-and-embed-an-icon-font-on-your-website">icons2</a>
+			</li>
+			<li>
+				Team images
+				<a href="http://yourpetandyou.de/recent-pets-and-their-owners/">Images1</a>
+				<a href="http://www.istockphoto.com/photo/outdoor-portraits-of-nine-mixed-race-young-poeple-55901884">Images2</a>
+			</li>
+		</ul>
+
+		<p>Also we've used the following scripts:
+		
+		<ul>
+			<li><a href="http://jquery.com/">jQuery</a> - JavaScript Library</li>
+			<li><a href="http://www.iosjs.com/">iOS.js - Javascript tool for optimizing web content for iOS devices.</a></li>
+			<li><a href="http://modernizr.com/">Modernizr</a> - JavaScript library that detects HTML5 and CSS3 features in the user’s browser.</li>
+			<li><a href="https://github.com/protonet/jquery.inview">jquery.inview</a> - jQuery plugin that adds a bindable 'inview' event for detecting when an element is scrolled into view</li>
+			<li><a href="http://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a> - esponsive lightbox & dialog script</li>
+			<li><a href="http://jqueryvalidation.org/">jQuery Validation</a> - Form validation with jQuery </li>
+			<li><a href="http://www.jacklmoore.com/autosize/">jQuery Autosize</a> - A plugin to automatically adjust textarea height.</li>
+			<li><a href="https://github.com/scottjehl/Respond">Respond.js</a> - A fast &amp; lightweight polyfill for min/max-width CSS3 Media Queries (for IE 6-8, and more)</li>
+			<li><a href="http://selectivizr.com/">Selectivizr</a> -  JavaScript utility that emulates CSS3 pseudo-classes and attribute selectors in Internet Explorer 6-8.</li>
+			<li><a href="http://aishek.github.io/jquery-animateNumber/">AnimateNumber</a></li>
+			<li><a href="http://isotope.metafizzy.co/filtering.html">Izotope filterin</a></li>
+			<li><a href="http://masonry.desandro.com/">Masonary</a></li>
+			<li><a href="https://github.com/kswedberg/jquery-smooth-scroll">Smooth-scroll</a></li>
+			<li><a href="https://github.com/pupunzi/jquery.mb.YTPlayer">YTPlayer</a></li>
+			<li><a href="http://owlgraphic.com/owlcarousel/">OWL slider</a></li>
+
+		</ul>
+		
+		<hr>
+		
+		<p>Once again, thank you so much for purchasing this HTML5 template. If you have any questions relating to this template, please feel free to email via our user page contact form <a href="http://themeforest.net/user/ThemeStreetNet">here</a>. We'll do our best to assist.</p> 
+		
+		<p class="append-bottom alt large"><strong>ThemeStreet.Net</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+		
+		<hr class="space"> 
+	</div><!-- end div .container -->
+</body>
+</html>
