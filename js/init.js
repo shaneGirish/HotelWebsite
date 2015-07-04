@@ -381,10 +381,10 @@
 
         navigation: false, // Show next and prev buttons
         slideSpeed: 500,
-        paginationSpeed: 1000,
+        paginationSpeed: 3000,
         singleItem: true,
         transitionStyle : "fade",
-        autoPlay:false  
+        autoPlay:true  
          
     }); 
     $('#subheader .owl-pagination .owl-page').append ('<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16"preserveAspectRatio="none"><circle cx="8" cy="8" r="6.215"/></svg>');
