@@ -122,6 +122,49 @@
     });
 
     /*-------------------------------------------------*/
+    /* =  Populate photos
+    /*-------------------------------------------------*/
+    var thumbnailOverrides = {
+      "in 19.jpg": {dir: "562x237", className: "width2"},
+      "in 10.jpg": {dir: "562x237", className: "width2"},
+      "in 6.jpg": {dir: "562x237", className: "width2"},
+      "in 15.jpg": {dir: "562x237", className: "width2"},
+      "3 out.jpg": {dir: "562x237", className: "width2"},
+      "12 out.jpg": {dir: "562x237", className: "width2"},
+      "26 out.jpg": {dir: "562x237", className: "width2"},
+      "27 out.jpg": {dir: "562x237", className: "width2"},
+      "21 out.jpg": {dir: "562x237", className: "width2"},
+      "30 out.jpg": {dir: "562x237", className: "width2"},
+      "image.jpeg" : {dir: "280x476", className: "height2"},
+      "in 4.jpg" : {dir: "280x476", className: "height2"},
+      "in 16.jpg" : {dir: "280x476", className: "height2"},
+      "in 18.jpg" : {dir: "280x476", className: "height2"},
+      "1 out.jpg" : {dir: "280x476", className: "height2"},
+      "16 out.jpg" : {dir: "280x476", className: "height2"},
+      "17 out.jpg" : {dir: "280x476", className: "height2"}
+    };
+    var photos = {
+      "View" : ["21 out.jpg", "28 out.JPG", "29 out.JPG", "30 out.JPG", "31 out.JPG", "32 out.JPG", "33 out.JPG"],
+      "Town" : ["24 out.JPG", "25 out.JPG", "26 out.JPG", "27 out.JPG", "22 out.JPG", "23 out.JPG"],
+      "Resort" : ["19 out.JPG", "2 out.jpg", "20 out.jpg", "3 out.jpg", "4 out.jpg", "5 out.jpg", "7 out.jpg", "8 out.jpg", "9 out.jpg", "11 out.jpg", "12 out.jpg", "13 out.jpg", "14 out.jpg", "15 out.jpg", "16 out.jpg", "17 out.jpg", "18 out.jpg", "1 out.jpg", "10 out.jpg", "10a out.jpg"],
+      "Apartments" : ["in 20.jpg", "in 3.jpg", "in 4.jpg", "in 5.jpg", "in 6.jpg", "in 7.jpg", "in 8.jpg", "in 9.jpg", "in 12.jpg", "in 13.jpg", "in 14.jpg", "in 15.jpg", "in 16.jpg", "in 17.jpg", "in 18.jpg", "in 19.jpg", "in 2.jpg", "image.jpeg", "in 1.jpg", "in 10.jpg", "in 11.jpg"]
+    };    
+
+    var photoBoxTemplate = _.template($("#photoBox").html());
+    var wrapperDiv = $('#filter_content');
+    _.each(photos, function(photoList, group) {
+      _.each(photoList, function(photo) {
+        var thumbnail = thumbnailOverrides[photo] || {dir: "280x237", className: ""};
+        wrapperDiv.append(photoBoxTemplate({
+          'group': group,
+          'photo': "images/photos/" + group + "/" + photo,
+          'thumbnail': "images/photos/_resized/" + thumbnail.dir + "/" + photo,
+          'dimensionClass': thumbnail.className
+        }));
+      })
+    });
+
+    /*-------------------------------------------------*/
     /* =  img to background
     /*-------------------------------------------------*/
     $(".white-popup img , .isotope-item >a >img").each(function(i, elem) {
