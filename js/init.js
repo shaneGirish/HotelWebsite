@@ -244,7 +244,6 @@
     var $filter_content = $('#filter_content');
     // initialize isotope
     $filter_content.isotope({
-      layoutMode: 'packery',
       filter: ".Apartments",
       animationOptions: {
         duration: 750,
@@ -255,7 +254,6 @@
     $('.filters a').click(function() {
       var selector = $(this).attr('data-filter');
       $filter_content.isotope({
-        layoutMode: 'packery',
         filter: selector
       });
       return false;
