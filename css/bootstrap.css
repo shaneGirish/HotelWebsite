@@ -11398,6 +11398,8 @@ header nav ul a:focus {
 .pricing-section .num-price > div {
   position: relative;
   padding: 18px;
+  padding-right: 25px;
+  padding-left: 25px;
   background-color: #fff;
   bottom: 30px;
   width: auto !important;
