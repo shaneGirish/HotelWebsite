@@ -260,64 +260,6 @@
     });
 
     /*-------------------------------------------------*/
-    /* =  video 
-    /*-------------------------------------------------*/
-    $(function() {
-      if (self.location.href == top.location.href) {}
-
-      $('#bgndVideo').on("YTPStart", function(e) {
-        var currentTime = e.time;
-        $("#pause").show();
-        $("#play").hide();
-        $('.mbYTP_wrapper').removeClass('active');
-
-      });
-
-      $('#bgndVideo').on("YTPUnstarted", function(e) {
-        var currentTime = e.time;
-        $("#pause").hide();
-        $("#play").show();
-        $('.mbYTP_wrapper').addClass('active');
-      });
-      $('#bgndVideo').on("YTPPause", function(e) {
-        var currentTime = e.time;
-        $("#pause").hide();
-        $("#play").show();
-      });
-      //debug functions
-      $("#bgndVideo").on("YTPStart", function() {
-        $("#eventListener").html("YTPStart");
-        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
-        $("#eventListener").append(" :: (quality= " + $("#bgndVideo").getPlayer().getPlaybackQuality() + ")");
-      });
-      $("#bgndVideo").on("YTPLoop", function(e) {
-        $("#eventListener").html("YTPLoop");
-        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
-        $("#eventListener").append(" :: " + e.counter);
-      });
-      $("#bgndVideo").on("YTPEnd", function() {
-        $("#eventListener").html("YTPEnd");
-        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
-        console.debug("YTPEnd")
-      });
-      $("#bgndVideo").on("YTPPause", function() {
-        $("#eventListener").html("YTPPause");
-        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
-      });
-      $("#bgndVideo").on("YTPBuffering", function() {
-        $("#eventListener").html("YTPBuffering");
-        $("#eventListener").append(" :: (state= " + $("#bgndVideo").getPlayer().getPlayerState() + ")");
-      });
-
-      $(".player").mb_YTPlayer({
-        onReady: function() {
-          $("#eventListener").append(" (Player is ready)");
-          $(".console").show();
-        }
-      });
-    });
-
-    /*-------------------------------------------------*/
     /* =  magnific popup 
     /*-------------------------------------------------*/
     var close_icon = '<svg fill="currentColor" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" \
@@ -389,24 +331,6 @@
       }
     });
 
-    $('.popup-youtube, .popup-vimeo').magnificPopup({
-      type: 'iframe',
-      // mainClass: 'mfp-fade',
-      removalDelay: 50,
-      preloader: false,
-      fixedContentPos: true,
-      callbacks: {
-        open: function() {
-          $('.mfp-close').empty().append(close_icon);
-        },
-        beforeOpen: function() {
-          // just a hack that adds mfp-anim class to markup 
-          this.st.image.markup = this.st.image.markup.replace('mfp-figure', 'mfp-figure mfp-with-anim');
-          this.st.mainClass = this.st.el.attr('data-effect');
-        }
-      }
-    });
-
     /*-------------------------------------------------*/
     /* =  slider subheader
   	/*-------------------------------------------------*/
@@ -444,25 +368,6 @@
       img.replaceWith(div);
       $(div).addClass('browse-images')
     });
-
-    /*-------------------------------------------------*/
-    /* =  slider follow
-    /*-------------------------------------------------*/
-    $("#slider3").owlCarousel({
-      navigation: false, // Show next and prev buttons
-      slideSpeed: 500,
-      paginationSpeed: 1000,
-      singleItem: true,
-      transitionStyle: "fade",
-      autoPlay: false
-    });
-
-    $(".follow-slider .next").on('click', function() {
-      $("#slider3").trigger('owl.next');
-    })
-    $(".follow-slider .prev").on('click', function() {
-      $("#slider3").trigger('owl.prev');
-    })
 
     /*-------------------------------------------------*/
     /* =  slider pricing
@@ -521,38 +426,6 @@
 
       }
     }).trigger('resize');
-
-    /*-------------------------------------------------*/
-    /* =  slider team
-    /*-------------------------------------------------*/
-    $("#owl2").owlCarousel({
-      items: 4,
-      itemsDesktop: [1199, 2],
-      itemsDesktopSmall: [700, 1],
-      itemsTablet: [480, 1],
-      navigation: true
-    });
-
-    /*-------------------------------------------------*/
-    /* =  animate numbers
-    /*-------------------------------------------------*/
-    $('#blog').one('inview', function(event, isInView, visiblePartX, visiblePartY) {
-      $('#lines1').animateNumber({
-        number: 226
-      }, 2000);
-
-      $('#lines2').animateNumber({
-        number: 356
-      }, 2000);
-
-      $('#lines3').animateNumber({
-        number: 195
-      }, 2000);
-
-      $('#lines4').animateNumber({
-        number: 583
-      }, 2000);
-    });
 
     /*-------------------------------------------------*/
     /* =  animate objects
@@ -651,182 +524,30 @@
     }).trigger('resize');
 
     /*-------------------------------------------------*/
-    /* =  Generate random number for form check
-    /*-------------------------------------------------*/
-    var generateRandom = function(element) {
-      var word = ['one', 'two', 'three', 'four', 'five'];
-      var rand = (Math.floor(Math.random() * 4));
-      var correct = word[rand];
-      $(element).html(correct);
-      return correct;
-    }
-
-    var correct = generateRandom('.test p span');
-
-    /*-------------------------------------------------*/
-    /* =  Highlighting checked radio button 
-    /*-------------------------------------------------*/
-    $('input[name=rand]').on('click', function() {
-      $('input[name=rand]').parent().removeClass('active1');
-      $('input[name=rand]:checked').parent().addClass('active1');
-    });
-
-    /*-------------------------------------------------*/
-    /* =  Popup notification 
-    /*-------------------------------------------------*/
-    var showNotification = function(message, className) {
-      $('.popup-email').fadeIn('fast');
-      $('.element p').remove();
-      $('.element').prepend('<p class="' + className + '">' + message + '</p>');
-    }
-
-    var closeNotification = function(element) {
-      $(element).fadeOut('fast');
-    }
-
-    $('#btn').on('click', function() {
-      closeNotification('.popup-email');
-    });
-
-    /*-------------------------------------------------*/
-    /* =  Form validation
-    /*-------------------------------------------------*/
-
-    $('.contact-form').validate({
-      errorElement: 'p',
-      errorClass: 'notify',
-      rules: {
-        name: "required",
-        subject: "required",
-        mail: {
-          required: true,
-          email: true
-        },
-        message: "required"
-      },
-      submitHandler: function(form) {
-        if ($('input[name=rand]:checked').val() === correct) {
-          $.post('form_data.php', $(form).serialize(), function(response) {
-            $(form)[0].reset();
-            correct = generateRandom('.test p span');
-            closeNotification('.contact-wrap');
-            showNotification(response.msg, response.class);
-          }, 'json');
-        } else showNotification('Incorrect number selected!', 'error');
-
-      }
-    });
-
-    /*-------------------------------------------------*/
     /* =  map
     /*-------------------------------------------------*/
 
     function initialize() {
-      var loc, map, marker, infobox, styles;
+      var loc = new google.maps.LatLng(35.260145, 25.725041);
 
-      loc = new google.maps.LatLng(51.508606, -0.133789);
-
-      map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 7,
+      var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 16,
         center: loc,
-        scrollwheel: false,
-        navigationControl: false,
-        mapTypeControl: false,
-        scaleControl: false,
-        draggable: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        scrollwheel: false
       });
 
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(51.508606, -0.133789),
-        map: map,
-        // title: 'VIEW ADDRESS',
-        icon: 'images/pin.png' // This path is the custom pin to be shown. Remove this line and the proceeding comma to use default pin
-      });
-      styles = [{
-        "featureType": "administrative",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "poi",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "road",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "transit",
-        "stylers": [{
-          "visibility": "off"
-        }]
-      }, {
-        "featureType": "landscape",
-        "stylers": [{
-          "visibility": "on"
-        }, {
-          "color": "#c7cad5"
-        }]
-      }, {
-        "featureType": "water",
-        "stylers": [{
-          "visibility": "on"
-        }, {
-          "color": "#eaedf3"
-        }]
-      }, {}];
-
-      infobox = new InfoBox({
-        content: document.getElementById("infobox"),
-        disableAutoPan: false,
-        maxWidth: 790,
-        pixelOffset: new google.maps.Size(-395, -200),
-        zIndex: 999,
-        boxStyle: {
-          // background: "url('http://google-maps-utility-library-v3.googlecode.com/svn/trunk/infobox/examples/tipbox.gif') no-repeat",
-          opacity: 1,
-          width: "790px"
-        },
-        // closeBoxMargin: "12px 4px 2px 2px",
-        closeBoxURL: "images/location.png",
-        infoBoxClearance: new google.maps.Size(1, 1)
-      });
-
-      var styledMap = new google.maps.StyledMapType(styles, {
-        name: "Styled Map"
-      });
-
-      map.mapTypes.set('map', styledMap);
-      map.setMapTypeId('map');
+      var marker = new google.maps.Marker({ position: loc, map: map });
 
       google.maps.event.addListener(marker, 'click', function() {
-        infobox.open(map, this);
         map.panTo(loc);
       });
 
-      var infowindow = new google.maps.InfoWindow({
+      new google.maps.InfoWindow({
         content: document.getElementById("infobox1"),
-
-      });
-      infowindow.open(map, marker);
-      infobox.open(map, marker);
-
-      var icon1 = "images/pin.png";
-      var icon2 = "images/pin-hover.png";
-
-      google.maps.event.addListener(marker, 'mouseover', function() {
-        marker.setIcon(icon2);
-      });
-      google.maps.event.addListener(marker, 'mouseout', function() {
-        marker.setIcon(icon1);
-      });
-
+      }).open(map, marker);
     }
-    google.maps.event.addDomListener(window, 'load', initialize);
 
+    google.maps.event.addDomListener(window, 'load', initialize);
   });
 
 })(jQuery);
