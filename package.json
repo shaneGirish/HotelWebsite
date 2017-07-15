@@ -10,7 +10,7 @@
     "http-server": "*"
   },
   "engines": {
-    "node": "0.12.2"
+    "node": "8.x"
   },
   "repository": {
     "type": "git",
