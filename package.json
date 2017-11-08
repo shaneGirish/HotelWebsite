@@ -4,7 +4,8 @@
   "description": "Website for Elounda Relax Apartments",
   "main": "index.js",
   "scripts": {
-    "start": "node node_modules/.bin/http-server -p ${PORT:-9000}"
+    "start": "node node_modules/.bin/http-server -p ${PORT:-9000}",
+    "sync": "aws s3 sync . s3://eloundarelax.com/ --exclude '.git/*' --exclude 'node_modules/*'"
   },
   "dependencies": {
     "http-server": "*"
