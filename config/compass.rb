@@ -22,3 +22,6 @@ javascripts_dir = "js"
 # preferred_syntax = :sass
 # and then run:
 # sass-convert -R --from scss --to sass sass scss && rm -rf sass && mv scss sass
+
+output_style = :compressed
+line_comments = false
