@@ -1,262 +1,138 @@
-//
-// Navs
-// --------------------------------------------------
+/* --------------------------------------------------------------------------------------
++
++ NAVS
++
+-------------------------------------------------------------------------------------- */
 
-
-// Base class
-// --------------------------------------------------
-
-.nav {
-  margin-bottom: 0;
-  padding-left: 0; // Override default ul/ol
-  list-style: none;
-  @include clearfix();
-
-  > li {
+/* adjust body when menu is open */
+body.slide-active {
+    overflow-x: hidden
+}
+/*first child of #page-content so it doesn't shift around*/
+.no-margin-top {
+    margin-top: 0px!important
+}
+/*wrap the entire page content but not nav inside this div if not a fixed top, don't add any top padding */
+#page-content {
     position: relative;
-    display: block;
-
-    > a {
-      position: relative;
-      display: block;
-      padding: $nav-link-padding;
-      &:hover,
-      &:focus {
-        text-decoration: none;
-        background-color: $nav-link-hover-bg;
-      }
-    }
-
-    // Disabled state sets text to gray and nukes hover/tab effects
-    &.disabled > a {
-      color: $nav-disabled-link-color;
-
-      &:hover,
-      &:focus {
-        color: $nav-disabled-link-hover-color;
-        text-decoration: none;
-        background-color: transparent;
-        cursor: not-allowed;
-      }
-    }
-  }
-
-  // Open dropdowns
-  .open > a {
-    &,
-    &:hover,
-    &:focus {
-      background-color: $nav-link-hover-bg;
-      border-color: $link-color;
-
-      .caret {
-        border-top-color: $link-hover-color;
-        border-bottom-color: $link-hover-color;
-      }
-    }
-  }
-
-  // Nav dividers (deprecated with v3.0.1)
-  //
-  // This should have been removed in v3 with the dropping of `.nav-list`, but
-  // we missed it. We don't currently support this anywhere, but in the interest
-  // of maintaining backward compatibility in case you use it, it's deprecated.
-  .nav-divider {
-    @include nav-divider();
-  }
-
-  // Prevent IE8 from misplacing imgs
-  //
-  // See https://github.com/h5bp/html5-boilerplate/issues/984#issuecomment-3985989
-  > li > a > img {
-    max-width: none;
-  }
+    padding-top: 0;
+    left: 0;
 }
-
-
-// Tabs
-// -------------------------
-
-// Give the tabs something to sit on
-.nav-tabs {
-  border-bottom: 1px solid $nav-tabs-border-color;
-  > li {
+#page-content.slide-active {
+    padding-top:0;
+}
+/* put toggle bars on the left :: not using button */
+#slide-nav .navbar-toggle {
+    cursor: pointer;
+    position: relative;
+    line-height: 0;
     float: left;
-    // Make the list-items overlay the bottom border
-    margin-bottom: -1px;
-
-    // Actual tabs (as links)
-    > a {
-      margin-right: 2px;
-      line-height: $line-height-base;
-      border: 1px solid transparent;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-      &:hover {
-        border-color: $nav-tabs-link-hover-border-color $nav-tabs-link-hover-border-color $nav-tabs-border-color;
-      }
-    }
-
-    // Active state, and it's :hover to override normal :hover
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-tabs-active-link-hover-color;
-        background-color: $nav-tabs-active-link-hover-bg;
-        border: 1px solid $nav-tabs-active-link-hover-border-color;
-        border-bottom-color: transparent;
-        cursor: default;
-      }
-    }
-  }
-  // pulling this in mainly for less shorthand
-  &.nav-justified {
-    @extend .nav-justified;
-    @extend .nav-tabs-justified;
-  }
+    width: 30px;
+    height: 40px;
+    padding: 10px 0 0 0;
+    border: 0;
+    background: transparent;
 }
-
-
-// Pills
-// -------------------------
-.nav-pills {
-  > li {
-    float: left;
-
-    // Links rendered as pills
-    > a {
-      border-radius: $nav-pills-border-radius;
-    }
-    + li {
-      margin-left: 2px;
-    }
-
-    // Active state
-    &.active > a {
-      &,
-      &:hover,
-      &:focus {
-        color: $nav-pills-active-link-hover-color;
-        background-color: $nav-pills-active-link-hover-bg;
-
-        .caret {
-          border-top-color: $nav-pills-active-link-hover-color;
-          border-bottom-color: $nav-pills-active-link-hover-color;
-        }
-      }
-    }
-  }
-}
-
-
-// Stacked pills
-.nav-stacked {
-  > li {
-    float: none;
-    + li {
-      margin-top: 2px;
-      margin-left: 0; // no need for this gap between nav items
-    }
-  }
-}
-
-
-// Nav variations
-// --------------------------------------------------
-
-// Justified nav links
-// -------------------------
-
-.nav-justified {
-  width: 100%;
-
-  > li {
-    float: none;
-     > a {
-      text-align: center;
-      margin-bottom: 5px;
-    }
-  }
-
-  > .dropdown .dropdown-menu {
-    top: auto;
-    left: auto;
-  }
-
-  @media (min-width: $screen-sm-min) {
-    > li {
-      display: table-cell;
-      width: 1%;
-      > a {
-        margin-bottom: 0;
-      }
-    }
-  }
-}
-
-// Move borders to anchors instead of bottom of list
-//
-// Mixin for adding on top the shared `.nav-justified` styles for our tabs
-.nav-tabs-justified {
-  border-bottom: 0;
-
-  > li > a {
-    // Override margin from .nav-tabs
-    margin-right: 0;
-    border-radius: $border-radius-base;
-  }
-
-  > .active > a,
-  > .active > a:hover,
-  > .active > a:focus {
-    border: 1px solid $nav-tabs-justified-link-border-color;
-  }
-
-  @media (min-width: $screen-sm-min) {
-    > li > a {
-      border-bottom: 1px solid $nav-tabs-justified-link-border-color;
-      border-radius: $border-radius-base $border-radius-base 0 0;
-    }
-    > .active > a,
-    > .active > a:hover,
-    > .active > a:focus {
-      border-bottom-color: $nav-tabs-justified-active-link-border-color;
-    }
-  }
-}
-
-
-// Tabbable tabs
-// -------------------------
-
-// Hide tabbable panes to start, show them when `.active`
-.tab-content {
-  > .tab-pane {
-    display: none;
-  }
-  > .active {
+/* icon bar prettyup - optional */
+#slide-nav .navbar-toggle > .icon-bar {
+    width: 100%;
     display: block;
-  }
+    height: 3px;
+    margin: 5px 0 0 0;
 }
-
-
-// Dropdowns
-// -------------------------
-
-// Make dropdown carets use link color in navs
-.nav .caret {
-  border-top-color: $link-color;
-  border-bottom-color: $link-color;
+#slide-nav .navbar-toggle.slide-active .icon-bar {
+    background: orange
 }
-.nav a:hover .caret {
-  border-top-color: $link-hover-color;
-  border-bottom-color: $link-hover-color;
+.navbar-header {
+    position: relative;
+    height: 90px;
 }
+/* un fix the navbar when active so that all the menu items are accessible */
+.navbar.navbar-fixed-top.slide-active {
+    position: fixed;
+}
+/* screw writing importants and shit, just stick it in max width since these classes are not shared between sizes */
+@media (max-width:767px) { 
+	#slide-nav .container {
+	    margin: 0;
+	    padding: 0!important;
+	}
+	#slide-nav .navbar-header {
+	    margin: 0 auto;
+	    padding: 0 15px;
 
-// Specific dropdowns
-.nav-tabs .dropdown-menu {
-  // make dropdown border overlap tab border
-  margin-top: -1px;
-  // Remove the top rounded corners here since there is a hard edge above the menu
-  @include border-top-radius(0);
+	}
+	#slide-nav .navbar.slide-active {
+	    position: absolute;
+	    width: 40%;
+	    // top: -1px;
+	    z-index: 1000;
+	    border-bottom: 0!important;
+	}
+	#slide-nav #slidemenu {
+	    background: #f7f7f7;
+	    right: -100%;
+	    width: 40%;
+	    min-width: 0;
+	    position: absolute;
+	    padding-left: 0;
+	    z-index: 2;
+	    top: 90px;
+	    margin: 0;
+	}
+	#slide-nav #slidemenu .navbar-nav {
+	    min-width: 0;
+	    width: 100%;
+	    margin: 0;
+	}
+	#slide-nav #slidemenu .navbar-nav .dropdown-menu li a {
+	    min-width: 0;
+	    width: 40%;
+	    white-space: normal;
+	}
+	#slide-nav {
+	    border-top: 0;
+	    margin-bottom: 0!important;
+	}
+	#slide-nav.navbar-inverse #slidemenu {
+	    background: #333
+	}
+	/* this is behind the navigation but the navigation is not inside it so that the navigation is accessible and scrolls*/
+	#slide-nav #navbar-height-col {
+	    position: fixed;
+	    top: 90px;
+	    height: 100%;
+	    width: 40%;
+	    right: -40%; 
+	    background: #eee;
+	}
+	#slide-nav.navbar-inverse #navbar-height-col {
+	    background: #333;
+	    z-index: 1;
+	    border: 0;
+	}
+	#slide-nav .navbar-form {
+	    width: 100%;
+	    margin: 8px 0;
+	    text-align: center;
+	    overflow: hidden;
+	    /*fast clearfixer*/
+	}
+	#slide-nav .navbar-form .form-control {
+	    text-align: center
+	}
+	#slide-nav .navbar-form .btn {
+	    width: 100%
+	}
+}
+@media (min-width:768px) { 
+	#page-content {
+	    left: 0!important
+	}
+	.navbar.navbar-fixed-top.slide-active {
+	    position: fixed
+	}
+	.navbar-header {
+	    left: 0!important
+	}
 }
